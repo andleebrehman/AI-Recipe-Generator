@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-g" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Recipe Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --neon-primary: #a855f7; /* Default: Fuchsia-500 */
+        --neon-secondary: #06b6d4; /* Default: Cyan-500 */
+        --neon-primary-light: #f472b6; /* Default: Fuchsia-400 */
+        --neon-secondary-light: #22d3ee; /* Default: Cyan-400 */
+      }
+      .animation-delay-2000 {
+        animation-delay: 2s;
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-in-out both;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes neon-pulse {
+        0%, 100% { text-shadow: 0 0 2px var(--neon-secondary-light), 0 0 4px var(--neon-secondary-light); }
+        50% { text-shadow: 0 0 4px var(--neon-secondary-light), 0 0 10px var(--neon-secondary); }
+      }
+      @keyframes pulse-border {
+        0%, 100% {
+          border-color: rgba(248, 113, 113, 0.5);
+          box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.4);
+        }
+        50% {
+          border-color: rgba(248, 113, 113, 0.9);
+          box-shadow: 0 0 15px 5px rgba(248, 113, 113, 0);
+        }
+      }
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+      .typewriter-cursor::after {
+        content: '|';
+        color: var(--neon-secondary-light);
+        animation: blink 1.2s step-end infinite;
+        margin-left: 2px;
+        font-weight: bold;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
